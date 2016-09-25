@@ -1,14 +1,15 @@
 module lab2_part2 (LEDR,SW);
-input [9:0] SW;
-output [9:0] LEDR;
-mux4to1(
-.in0(SW[0]),
-.in1(SW[1]),
-.in2(SW[2]),
-.in3(SW[3]),
-.s0(SW[8]),
-.s1(SW[9]),
-.m(LEDR[0]),
+	input [9:0] SW;
+	output [9:0] LEDR;
+	mux4to1 u0(
+	.in0(SW[0]),
+	.in1(SW[1]),
+	.in2(SW[2]),
+	.in3(SW[3]),
+	.s0(SW[8]),
+	.s1(SW[9]),
+	.m(LEDR[0])
+
 );
 
 endmodule
@@ -25,9 +26,9 @@ output m;
 
 wire w0;
 wire w1;
-mux2to1(in0,in1,s0,w0);
-mux2to1(in2,in3,s0,w1);
-mux2to1(w0,w1,s1,m);
+mux2to1 m3(in0,in1,s0,w0);
+mux2to1 m2(in2,in3,s0,w1);
+mux2to1 m1(w0,w1,s1,m);
 endmodule
 
 
