@@ -1,4 +1,4 @@
-module lab2part3(HEX0,SW);
+module Lab2Part3WLC(HEX0,SW);
 inout [9:0]SW;
 output [6:0] HEX0;
 displayLight u0(
@@ -33,11 +33,11 @@ output out4;
 output out5;
 output out6;
 
-assign out0=!((~in3 & ~in2 & ~in1 & in0)|(~in3 & in2 & ~in1 & ~in0)|(in3&~in2&in1&in0)|(in3&in2&~in1&in0));
-assign out1=!((~in3&in2&~in1&in0)|(~in3&in2&in1&~in0)|(in3&~in2&in1&in0)|(in3&in2&~in1&~in0)|(in3&in2&in1&~in0)|(in3&in2&in1&in0));
-assign out2=!((~in3&~in2&in1&~in0)|(in3&in2&~in1&~in0)|(in3&in2&in1&~in0)|(in3&in2&in1&in0));
-assign out3=!((~in3 &~in2&~in1&in0)|(~in3&in2&~in1&~in0)|(~in3&in2&in1&in0)|(in3&~in2&in1&~in0)|(in3&in2&in1&in0));
-assign out4=!((~in3&~in2&~in1&in0)|(~in3&~in2&in1&in0)|(~in3&in2&~in1&~in0)|(~in3&in2&~in1&in0)|(~in3&in2&in1&in0)|(in3&~in2&~in1&in0));
-assign out5=!((~in3&~in2&~in1&in0)|(~in3&~in2&in1&~in0)|(~in3&~in2&in1&in0)|(~in3&in2&in1&in0)|(in3&in2&~in1&in0));
-assign out6=!((~in3&~in2&~in1&~in0)|(~in3&~in2&~in1&in0)|(~in3&in2&in1&in0)|(in3&in2&~in1&~in0));
+assign out0=((~in3 & ~in2 & ~in1 & in0)|(~in3 & in2 & ~in1 & ~in0)|(in3&~in2&in1&in0)|(in3&in2&~in1&in0));
+assign out1=((~in3&in2&~in1&in0)|(~in3&in2&in1&~in0)|(in3&~in2&in1&in0)|(in3&in2&~in1&~in0)|(in3&in2&in1&~in0)|(in3&in2&in1&in0));
+assign out2=((~in3&~in2&in1&~in0)|(in3&in2&~in1&~in0)|(in3&in2&in1&~in0)|(in3&in2&in1&in0));
+assign out3=((~in3 &~in2&~in1&in0)|(~in3&in2&~in1&~in0)|(~in3&in2&in1&in0)|(in3&~in2&in1&~in0)|(in3&in2&in1&in0));
+assign out4=((~in3&~in2&~in1&in0)|(~in3&~in2&in1&in0)|(~in3&in2&~in1&~in0)|(~in3&in2&~in1&in0)|(~in3&in2&in1&in0)|(in3&~in2&~in1&in0));
+assign out5=((~in3&~in2&~in1&in0)|(~in3&~in2&in1&~in0)|(~in3&~in2&in1&in0)|(~in3&in2&in1&in0)|(in3&in2&~in1&in0));
+assign out6=((~in3&~in2&~in1&~in0)|(~in3&~in2&~in1&in0)|(~in3&in2&in1&in0)|(in3&in2&~in1&~in0));
 endmodule
