@@ -1,0 +1,59 @@
+module lab4(SW,LEDR,KEY);
+input[9:0] SW;
+input[9:0]LEDR;
+input[3:0]KEY;
+
+wire rest_top=SW[9];
+wire clock_top=~KEY[0];
+reg [7:0] DATA_IN;
+endmodule
+
+
+
+
+
+module subCircuit(left,right,loadleft,d,loadn,clock,rest,q)
+input left;
+input right;
+input loadleft;
+input d;
+input loadn;
+input clock;
+input rest;
+output q;
+
+wire w1,w2;
+
+mux2to1 u1(.x(left),.y(right),.s(loadleft),.m(w1));
+mux2to1 u2(.x(w1),.y(d),.s(loadn),.m(w2));
+flipflop u2(.d(w2),.clock(clock),.rest(rest),.q(q));
+endmodule
+
+
+
+module mux2to1 M1(x,y,s,m);
+  input x;
+  input y;
+  input s;
+  output m;
+  assign m=s?y:x;
+endmodule
+
+
+
+module flipflop(d,Clock,rest,q)
+input d;
+input Clock;
+input rest;
+output q;
+
+always@(posedge Clock)
+   begin
+	if(rest==1'0b)
+	   q<=0;
+	else
+	   q<=d;
+	end
+end
+	 endmodule
+	 
