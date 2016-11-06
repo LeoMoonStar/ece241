@@ -16,8 +16,9 @@ double_digit[2]=1'b0;
 double_digit[1]=1'b0;
 double_digit[0]=SW[8];
 end
+
 hex_decoder h0(ram_output[3:0],HEX0);
 hex_decoder h1(data_input[3:0],HEX2);
-hex_decoder h2(double_digit,hex5);
+hex_decoder h2(double_digit[3:0],HEX5);
 hex_decoder h3(address_input[3:0],HEX4);
 endmodule
