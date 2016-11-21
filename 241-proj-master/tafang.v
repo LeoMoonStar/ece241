@@ -36,7 +36,7 @@ module BaseDefense
 	assign clock=CLOCK_50;
 	wire [16:0] address;
 	wire resetn;
-	assign resetn = KEY[0];
+	assign resetn = ~KEY[0];
 	wire startgame;
 	assign startgame=SW[0];
 	assign LEDR[0]=startgame;
